@@ -10,7 +10,9 @@ while(true) do
 
     puts
     puts "Receita #{nome} cadastrada com sucesso!"
-    pus
+    puts
     puts "=============== Receitas Cadastradas ==============="
+    puts receitas
+    puts    
     
 end    
