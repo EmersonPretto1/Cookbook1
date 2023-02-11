@@ -1,27 +1,59 @@
-puts " Bem vindo ao cookbook sua rede social de receita"
+def bem_vindo
+    puts "Bem-vindo ao Cookbook, sua rede social de receitas"
+
+end
+
+def menu()
+    puts "[1] Cadastrar um receita"
+    puts "[2] Ver todas as receitas"
+    puts "[3] Sair"
+
+    print "Escolha uma opção: "
+    return gets.to_i()
+end
+
+def inserir_receita()
+    puts "Digite o nome da receita: "
+    nome = gets.chomp()
+    puts "Digite o tipo da receita: "
+    tipo = gets.chomp()
+
+    
+    
+    puts
+    puts "Receita #{nome} cadastrada com sucesso!"
+    puts
+    return {nome: nome, tipo: tipo}
+    
+end  
+
+def imprimir_receitas(r)
+    puts "=============== Receitas Cadastradas ==============="
+    r.each do |receita|
+     puts "#{receita[:nome]} - #{receita[:tipo]}"
+      
+    end 
+    puts
+end    
+
+    
+
+
+bem_vindo()
 
 receitas = []
 
-puts "[1] Cadastrar um receita"
-puts "[2] Ver todas as receitas"
-puts "[3] Sair"
 
-print "Escolha uma opção: "
-opcao = gets.to_i()
+opcao = menu()
 
 
 while(opcao != 3) do
     if(opcao == 1)
-        puts "Digite o nome da receita: "
-        nome = gets.chomp()
-        receitas << nome
-        puts
-        puts "Receita #{nome} cadastrada com sucesso!"
-        puts
-    elsif(opcao == 2)    
-        puts "=============== Receitas Cadastradas ==============="
-        puts receitas
-        puts 
+       receitas << inserir_receita()
+        
+    elsif(opcao == 2) 
+        imprimir_receitas(receitas)   
+       
     
         
     else
@@ -29,13 +61,10 @@ while(opcao != 3) do
         
     end  
     
-    puts "[1] Cadastrar um receita"
-    puts "[2] Ver todas as receitas"
-    puts "[3] Sair"
+   
 
-    print "Escolha uma opção: "
-    opcao = gets.to_i()
-          
+    
+    opcao = menu()
     
 end   
 
